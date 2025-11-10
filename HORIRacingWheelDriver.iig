@@ -1,0 +1,43 @@
+#ifndef HORIRacingWheelDriver_h
+#define HORIRacingWheelDriver_h
+
+#include <Availability.h>
+#include <DriverKit/IOService.iig>
+#include <DriverKit/IOUserClient.iig>
+#include <USBDriverKit/IOUSBHostDevice.iig>
+#include <USBDriverKit/IOUSBHostInterface.iig>
+#include <HIDDriverKit/IOUserHIDEventService.iig>
+
+class HORIRacingWheelDriver: public IOUserHIDEventService
+{
+public:
+    virtual bool init() override;
+    virtual kern_return_t Start(IOService * provider) override;
+    virtual kern_return_t Stop(IOService * provider) override;
+    virtual void free() override;
+
+    // USB handling
+    virtual kern_return_t handleReport(uint64_t timestamp, uint8_t *report, uint32_t reportLength, IOHIDReportType type, uint32_t reportID) override;
+
+private:
+    // USB interface members
+    IOUSBHostInterface *_interface;
+    IOUSBHostPipe *_inPipe;
+    OSAction *_completionAction;
+
+    // Report buffer
+    IOBufferMemoryDescriptor *_reportBuffer;
+
+    // HID descriptor
+    virtual OSDictionary * newDeviceDescription() override;
+    virtual OSData * newReportDescriptor() override;
+
+    // Input handling
+    void HandleInputReport(uint64_t timestamp, uint8_t *report, uint32_t reportLength);
+    void ParseWheelData(uint8_t *report, uint32_t reportLength);
+
+    // Completion handler
+    virtual void ReadComplete(OSAction *action, IOReturn status, uint32_t actualByteCount, uint64_t completionTimestamp) TYPE(IOUSBHostPipe::CompleteAsyncIO);
+};
+
+#endif /* HORIRacingWheelDriver_h */
