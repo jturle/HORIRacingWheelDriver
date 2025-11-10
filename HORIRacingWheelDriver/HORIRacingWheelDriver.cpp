@@ -270,11 +270,12 @@ void HORIRacingWheelDriver::ParseWheelData(uint8_t *report, uint32_t reportLengt
     //           Bit 5 (0x20): B button
     //           Bit 6 (0x40): X button
     //           Bit 7 (0x80): Y button
-    // Byte 4:   Brake / ZL Button (shared axis)
+    // Byte 4:   Brake / ZL Button / Horn Button (shared axis)
     //           0x00 = No input
     //           0x01-0xFE = Brake pedal analog position
-    //           0xFF = EITHER full brake pedal OR ZL button pressed
+    //           0xFF = EITHER full brake pedal OR ZL button OR horn button (center of wheel)
     //           Note: ZL button acts as "digital full brake" - this is intentional hardware design.
+    //                 Horn button (center of wheel) also shares this input - hardware limitation.
     //                 The button provides a digital fallback when pedals aren't available/connected.
     // Byte 5:   Accelerator / ZR Button (shared axis)
     //           0x00 = No input
