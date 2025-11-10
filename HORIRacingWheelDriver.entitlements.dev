@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- HID Device family - usually approved by default -->
+    <key>com.apple.developer.driverkit.family.hid.device</key>
+    <true/>
+
+    <!-- HID Event Service - usually approved by default -->
+    <key>com.apple.developer.driverkit.family.hid.eventservice</key>
+    <true/>
+
+    <!--
+    COMMENTED OUT: These require Apple approval
+    Uncomment once you receive approval from Apple Developer Support
+
+    <key>com.apple.developer.driverkit.allow-any-userclient-access</key>
+    <true/>
+
+    <key>com.apple.developer.driverkit.transport.usb</key>
+    <true/>
+
+    <key>com.apple.developer.driverkit.userclient-access</key>
+    <array>
+        <string>com.apple.developer.hid.virtual.device</string>
+    </array>
+    -->
+</dict>
+</plist>

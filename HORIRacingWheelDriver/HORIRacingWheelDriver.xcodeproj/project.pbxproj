@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A1C76322EC2308700232928 /* DriverKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1C76312EC2308700232928 /* DriverKit.framework */; };
+		1A1C76432EC231C800232928 /* HORIRacingWheelDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C763F2EC231C800232928 /* HORIRacingWheelDriver.cpp */; };
+		1A1C76442EC231C800232928 /* HORIRacingWheelDriver.iig in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C76412EC231C800232928 /* HORIRacingWheelDriver.iig */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1A1C762E2EC2308700232928 /* com.turle.HORIRacingWheelDriver.dext */ = {isa = PBXFileReference; explicitFileType = "wrapper.driver-extension"; includeInIndex = 0; path = com.turle.HORIRacingWheelDriver.dext; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A1C76312EC2308700232928 /* DriverKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DriverKit.framework; path = Library/Frameworks/DriverKit.framework; sourceTree = DEVELOPER_DIR; };
+		1A1C763F2EC231C800232928 /* HORIRacingWheelDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HORIRacingWheelDriver.cpp; sourceTree = "<group>"; };
+		1A1C76402EC231C800232928 /* HORIRacingWheelDriver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HORIRacingWheelDriver.entitlements; sourceTree = "<group>"; };
+		1A1C76412EC231C800232928 /* HORIRacingWheelDriver.iig */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.iig; path = HORIRacingWheelDriver.iig; sourceTree = "<group>"; };
+		1A1C76422EC231C800232928 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A1C76462EC2346500232928 /* HORIRacingWheelDriver.entitlements.dev */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HORIRacingWheelDriver.entitlements.dev; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A1C762B2EC2308700232928 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A1C76322EC2308700232928 /* DriverKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A1C76242EC2308700232928 = {
+			isa = PBXGroup;
+			children = (
+				1A1C76462EC2346500232928 /* HORIRacingWheelDriver.entitlements.dev */,
+				1A1C763F2EC231C800232928 /* HORIRacingWheelDriver.cpp */,
+				1A1C76402EC231C800232928 /* HORIRacingWheelDriver.entitlements */,
+				1A1C76412EC231C800232928 /* HORIRacingWheelDriver.iig */,
+				1A1C76422EC231C800232928 /* Info.plist */,
+				1A1C76302EC2308700232928 /* Frameworks */,
+				1A1C762F2EC2308700232928 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A1C762F2EC2308700232928 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C762E2EC2308700232928 /* com.turle.HORIRacingWheelDriver.dext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A1C76302EC2308700232928 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A1C76312EC2308700232928 /* DriverKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1A1C76292EC2308700232928 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1A1C762D2EC2308700232928 /* HORIRacingWheelDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A1C763A2EC2308700232928 /* Build configuration list for PBXNativeTarget "HORIRacingWheelDriver" */;
+			buildPhases = (
+				1A1C76292EC2308700232928 /* Headers */,
+				1A1C762A2EC2308700232928 /* Sources */,
+				1A1C762B2EC2308700232928 /* Frameworks */,
+				1A1C762C2EC2308700232928 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HORIRacingWheelDriver;
+			packageProductDependencies = (
+			);
+			productName = HORIRacingWheelDriver;
+			productReference = 1A1C762E2EC2308700232928 /* com.turle.HORIRacingWheelDriver.dext */;
+			productType = "com.apple.product-type.driver-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A1C76252EC2308700232928 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2610;
+				TargetAttributes = {
+					1A1C762D2EC2308700232928 = {
+						CreatedOnToolsVersion = 26.1;
+					};
+				};
+			};
+			buildConfigurationList = 1A1C76282EC2308700232928 /* Build configuration list for PBXProject "HORIRacingWheelDriver" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A1C76242EC2308700232928;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 1A1C762F2EC2308700232928 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A1C762D2EC2308700232928 /* HORIRacingWheelDriver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A1C762C2EC2308700232928 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A1C762A2EC2308700232928 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A1C76432EC231C800232928 /* HORIRacingWheelDriver.cpp in Sources */,
+				1A1C76442EC231C800232928 /* HORIRacingWheelDriver.iig in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1A1C763B2EC2308700232928 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HORIRacingWheelDriver.entitlements.dev;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28D227GY2R;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					DriverKit,
+					"-framework",
+					USBDriverKit,
+					"-framework",
+					HIDDriverKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.turle.HORIRacingWheelDriver;
+				PRODUCT_NAME = "$(inherited)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		1A1C763C2EC2308700232928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = HORIRacingWheelDriver.entitlements.dev;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 28D227GY2R;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Info.plist;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					DriverKit,
+					"-framework",
+					USBDriverKit,
+					"-framework",
+					HIDDriverKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.turle.HORIRacingWheelDriver;
+				PRODUCT_NAME = "$(inherited)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		1A1C763D2EC2308700232928 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 28D227GY2R;
+				DRIVERKIT_DEPLOYMENT_TARGET = 25.1;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = driverkit;
+			};
+			name = Debug;
+		};
+		1A1C763E2EC2308700232928 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 28D227GY2R;
+				DRIVERKIT_DEPLOYMENT_TARGET = 25.1;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = driverkit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A1C76282EC2308700232928 /* Build configuration list for PBXProject "HORIRacingWheelDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A1C763D2EC2308700232928 /* Debug */,
+				1A1C763E2EC2308700232928 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A1C763A2EC2308700232928 /* Build configuration list for PBXNativeTarget "HORIRacingWheelDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A1C763B2EC2308700232928 /* Debug */,
+				1A1C763C2EC2308700232928 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A1C76252EC2308700232928 /* Project object */;
+}
