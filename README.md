@@ -109,12 +109,14 @@ systemextensionsctl submit com.yourname.HORIRacingWheelDriver
 
 1. Create an Xcode project:
    - File → New → Project
-   - Choose "System Extension" template
+   - Choose **DriverKit** → **Driver** template
    - Set Product Name to "HORIRacingWheelDriver"
    - Set Bundle Identifier (e.g., `com.yourname.HORIRacingWheelDriver`)
 
+   **OR** create a macOS App and add a DriverKit Driver target to it (recommended for deployment)
+
 2. Add the files to your project:
-   - Add all `.iig`, `.cpp`, `.plist`, and `.entitlements` files
+   - Replace template files with: `.iig`, `.cpp`, `.plist`, and `.entitlements` files
 
 3. Configure build settings:
    - Set deployment target to macOS 11.0+

@@ -18,16 +18,45 @@ The driver now contains the **actual HID descriptor** from your device and **pro
 
 ### Step 1: Create Xcode Project
 
+**Option A: Create a DriverKit Driver Target (Recommended)**
+
 1. Open **Xcode**
 2. File → New → Project...
-3. Choose **macOS** → **System Extension**
+3. Choose **macOS** → **App** (you'll add the DriverKit driver as a target)
+4. Configure the app:
+   - **Product Name**: `HORIRacingWheelApp` (container app)
+   - **Team**: Select your Apple Developer team
+   - **Organization Identifier**: `com.yourname` (replace with yours)
+   - **Bundle Identifier**: `com.yourname.HORIRacingWheelApp`
+   - **Language**: Swift or Objective-C (doesn't matter, just for the container)
+5. Click **Next** and choose location: `/Users/james/projects/hori/`
+6. Click **Create**
+
+7. **Add the DriverKit Driver Target:**
+   - In Xcode, select your project in the navigator
+   - Click the **+** button at the bottom of the targets list
+   - Choose **DriverKit** → **Driver**
+   - Configure:
+     - **Product Name**: `HORIRacingWheelDriver`
+     - **Team**: Select your Apple Developer team
+     - **Language**: C++
+   - Check **"Embed in Application"** and select your container app
+   - Click **Finish**
+
+**Option B: Use Existing Files (If you already have the project)**
+
+If you already have the source files and just need to set up Xcode:
+
+1. Open **Xcode**
+2. File → New → Project...
+3. Choose **DriverKit** → **Driver**
 4. Configure:
    - **Product Name**: `HORIRacingWheelDriver`
    - **Team**: Select your Apple Developer team
-   - **Organization Identifier**: `com.yourname` (replace with yours)
+   - **Organization Identifier**: `com.yourname`
    - **Bundle Identifier**: `com.yourname.HORIRacingWheelDriver`
    - **Language**: C++
-5. Choose location: `/Users/james/projects/hori/`
+5. Choose location (create a new folder or use existing)
 6. Click **Create**
 
 ### Step 2: Add Source Files to Project
