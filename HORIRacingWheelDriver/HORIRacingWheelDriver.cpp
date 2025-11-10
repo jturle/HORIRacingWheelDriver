@@ -270,11 +270,18 @@ void HORIRacingWheelDriver::ParseWheelData(uint8_t *report, uint32_t reportLengt
     //           Bit 5 (0x20): B button
     //           Bit 6 (0x40): X button
     //           Bit 7 (0x80): Y button
-    // Byte 4:   Brake (Z axis: 0x00=not pressed, 0xFF=full brake)
-    //           ALSO: ZL button (digital, 0xFF when pressed)
-    // Byte 5:   Accelerator (Y axis: 0x00=not pressed, 0xFF=full throttle)
-    //           ALSO: ZR button (digital, 0xFF when pressed)
-    //           Note: Also changes 0-86 when brake is pressed (cross-talk)
+    // Byte 4:   Brake / ZL Button (shared axis)
+    //           0x00 = No input
+    //           0x01-0xFE = Brake pedal analog position
+    //           0xFF = EITHER full brake pedal OR ZL button pressed
+    //           Note: ZL button acts as "digital full brake" - this is intentional hardware design.
+    //                 The button provides a digital fallback when pedals aren't available/connected.
+    // Byte 5:   Accelerator / ZR Button (shared axis)
+    //           0x00 = No input
+    //           0x01-0xFE = Accelerator pedal analog position
+    //           0xFF = EITHER full accelerator OR ZR button pressed
+    //           Note: ZR button acts as "digital full throttle" - this is intentional hardware design.
+    //                 Also shows cross-talk (0-86 range) when brake is pressed - hardware quirk.
     // Byte 6-7: Steering wheel (X axis: 16-BIT! Little-endian, signed-style)
     //           0x0000 = CENTER/NEUTRAL (straight ahead)
     //           0x0001 to 0x7FFF = Turn RIGHT (1 to 32767)
@@ -328,10 +335,10 @@ void HORIRacingWheelDriver::ParseWheelData(uint8_t *report, uint32_t reportLengt
     bool btn_x = (report[3] & 0x40) != 0;             // Bit 6: X button
     bool btn_y = (report[3] & 0x80) != 0;             // Bit 7: Y button
 
-    // Detect ZL and ZR buttons (they overlay on the analog pedal axes)
-    // ZL: Brake jumps to 0xFF when pressed
-    // ZR: Accelerator jumps to 0xFF when pressed
-    // Note: This means we can't detect these buttons when pedals are fully pressed
+    // ZL and ZR buttons share the same axis as the pedals (intentional hardware design)
+    // When byte 4 or 5 = 0xFF, it could be either the pedal at 100% OR the button pressed
+    // Games expect one input source (analog pedals OR digital buttons), not both
+    // This design provides digital fallback controls when pedals aren't connected
     bool btn_zl = (brake == 0xFF);
     bool btn_zr = (accel == 0xFF);
 

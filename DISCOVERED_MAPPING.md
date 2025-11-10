@@ -7,9 +7,9 @@
 | Control | Byte(s) | Type | Range | Notes |
 |---------|---------|------|-------|-------|
 | **Steering Wheel** | 6-7 | 16-bit ANALOG (signed) | 0x0000 = center, 0x0001-0x7FFF = right, 0x8000-0xFFFF = left | **TWO bytes!** High precision |
-| **Accelerator** | 5 | 8-bit ANALOG | 0x00 - 0xFF | Full range, also see ZR |
-| **Brake** | 4 | 8-bit ANALOG | 0x00 - 0xFF | Full range, also see ZL |
-| **Brake (partial?)** | 5 | 8-bit ANALOG | 0x00 - 0x56 | Also changes with brake |
+| **Accelerator / ZR** | 5 | 8-bit ANALOG (shared) | 0x00 - 0xFF | 0xFF = full throttle OR ZR button |
+| **Brake / ZL** | 4 | 8-bit ANALOG (shared) | 0x00 - 0xFF | 0xFF = full brake OR ZL button |
+| **Brake cross-talk** | 5 | 8-bit ANALOG | 0x00 - 0x56 | Hardware quirk: brake affects accel byte |
 | **Paddle Gear Down** | 3, bit 0 | BIT | 0/1 | Left paddle (0x01) |
 | **Paddle Gear Up** | 3, bit 1 | BIT | 0/1 | Right paddle (0x02) |
 | **Home Button** | 3, bit 2 | BIT | 0/1 | Home button (0x04) |
@@ -25,8 +25,8 @@
 | **Minus (-) Button** | 2, bit 5 | BIT | 0/1 | Minus button (0x20) |
 | **LSB (L Shoulder)** | 2, bit 6 | BIT | 0/1 | Left shoulder (0x40) |
 | **RSB (R Shoulder)** | 2, bit 7 | BIT | 0/1 | Right shoulder (0x80) |
-| **ZL Button** | 4 | DIGITAL (overlay) | 0xFF when pressed | Sets brake to 0xFF |
-| **ZR Button** | 5 | DIGITAL (overlay) | 0xFF when pressed | Sets accel to 0xFF |
+| **ZL Button** | 4 | DIGITAL (shared axis) | 0xFF when pressed | Shares axis with brake - digital fallback |
+| **ZR Button** | 5 | DIGITAL (shared axis) | 0xFF when pressed | Shares axis with accel - digital fallback |
 
 ## 🎯 Key Discoveries
 
@@ -132,12 +132,12 @@ This is **extremely efficient** - 8 controls in one byte!
 
 This is a **very efficient encoding** - 7 commonly used buttons in a single byte!
 
-### 6. ZL/ZR Buttons - Clever Overlay Design
+### 6. ZL/ZR Buttons - Intentional Hardware Design
 
-**ZL and ZR buttons** are implemented as digital overlays on the analog pedal axes:
+**ZL and ZR buttons** share the same axis as the analog pedals - this is **intentional hardware design** by HORI:
 
-- **ZL**: When pressed, Byte 4 (Brake) jumps to **0xFF**
-- **ZR**: When pressed, Byte 5 (Accelerator) jumps to **0xFF**
+- **ZL**: When pressed, Byte 4 (Brake) = **0xFF** (same as full brake pedal)
+- **ZR**: When pressed, Byte 5 (Accelerator) = **0xFF** (same as full throttle)
 
 **Detection logic:**
 ```cpp
@@ -145,7 +145,13 @@ bool btn_zl = (brake == 0xFF);
 bool btn_zr = (accel == 0xFF);
 ```
 
-**Important note:** This means you can't detect these buttons when the pedals are fully pressed (which is unlikely during normal use).
+**Why this design makes sense:**
+- The buttons act as **digital fallback controls** when pedals aren't available/connected
+- Games expect **one input source** (analog pedals OR digital buttons), not both simultaneously
+- When byte 4/5 = 0xFF, it could be either the pedal at 100% OR the button pressed
+- This is a common design pattern in racing wheels (similar to Logitech implementations)
+
+**Important note:** You cannot distinguish between a fully pressed pedal vs. button press - but you don't need to! Games treat them as the same control.
 
 ### 7. Bytes 0-1: Still Unknown
 
@@ -185,12 +191,14 @@ COMPLETE FORMAT (all controls mapped!):
 │           Bit 6 (0x40): X button          │
 │           Bit 7 (0x80): Y button          │
 ├────────────────────────────────────────────┤
-│ Byte 4:   Brake (0x00-0xFF)                │
-│           ALSO: ZL button (0xFF when pressed) │
+│ Byte 4:   Brake / ZL (shared axis)         │
+│           0x00-0xFE: Analog brake position │
+│           0xFF: Full brake OR ZL button    │
 ├────────────────────────────────────────────┤
-│ Byte 5:   Accelerator (0x00-0xFF)          │
-│           ALSO: ZR button (0xFF when pressed) │
-│           Note: Also changes 0-86 with brake │
+│ Byte 5:   Accelerator / ZR (shared axis)   │
+│           0x00-0xFE: Analog accel position │
+│           0xFF: Full throttle OR ZR button │
+│           Note: Shows 0-86 cross-talk from brake │
 ├────────────────────────────────────────────┤
 │ Bytes 6-7: Steering (16-bit little-endian) │
 │           0x0000 = CENTER/NEUTRAL          │
